@@ -1,10 +1,7 @@
 <template>
   <div id="home">
-    <SideNavTemplate :transclusions="['HomeSweetHome']">
-      <!-- <template :v-slot="HomeSweetHome"> -->
-      <template>
-        <div>Home Sweet Home</div>
-      </template>
+    <SideNavTemplate>
+      <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     </SideNavTemplate>
   </div>
 </template>

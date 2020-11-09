@@ -4,7 +4,7 @@
       v-model="drawer"
       app
       class="pt-4"
-      color="grey lighten-3"
+      color="grey darken-3"
       mini-variant
     >
       <v-avatar
@@ -17,7 +17,9 @@
     </v-navigation-drawer>
 
     <v-main>
-        <slot />
+      <p>Test</p>
+      <!-- <slot v-for="el in transclusions" :name="el"/> -->
+      <slot/>
     </v-main>
   </v-app>
 </template>
@@ -27,6 +29,9 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {},
+  props: {
+    transclusions: Array,
+  },
 })
 export default class Home extends Vue {}
 </script>
