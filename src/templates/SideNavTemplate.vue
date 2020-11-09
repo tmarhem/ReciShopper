@@ -17,9 +17,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <p>Test</p>
-      <!-- <slot v-for="el in transclusions" :name="el"/> -->
-      <slot/>
+      <slot v-for="el in transclusions" :name="el"/>
     </v-main>
   </v-app>
 </template>
