@@ -22,7 +22,12 @@
             v-text="ing.product_name_fr"
           ></v-card-title>
 
-          <v-card-text> </v-card-text>
+          <v-card-text>
+            <v-img
+              :src="`http://localhost:8080/Nutri-score-${ing.nutrition_grades_tags[0].toUpperCase()}.svg`"
+            ></v-img>
+            <!-- <v-img src="@/assets/Nutri-score-A.svg"></v-img> -->
+          </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
 
@@ -55,6 +60,10 @@ export default class IngredientsList extends Vue {}
 <style scoped>
 .v-card {
   margin: 15px;
+}
+
+.v-card__title {
+  font-size: 0.9rem !important;
 }
 
 #IngredientsList {
