@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="ingredients">
     <SideNavTemplate>
       <template>
         <v-card class="overflow-hidden">
@@ -9,7 +9,7 @@
             dark
             shrink-on-scroll
             prominent
-            src="https://picsum.photos/1920/1080?random"
+            src="https://c.pxhere.com/photos/f2/cf/greens_onion_spices_vegetables_food_kitchen_cooking_cutting_board-988557.jpg!d"
             fade-img-on-scroll
             scroll-target="#scrolling-techniques-3"
           >
@@ -31,7 +31,7 @@
             </v-btn>
 
             <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
+              <v-icon>mdi-plus</v-icon>
             </v-btn>
 
             <v-btn icon>

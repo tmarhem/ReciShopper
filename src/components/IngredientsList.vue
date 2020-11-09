@@ -56,4 +56,8 @@ export default class IngredientsList extends Vue {}
 .v-card {
   margin: 15px;
 }
+
+#IngredientsList {
+  margin-top: 250px;
+}
 </style>
