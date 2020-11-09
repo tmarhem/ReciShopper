@@ -15,6 +15,11 @@ const routes: Array<RouteConfig> = [
     name: 'Ingredients',
     component: () => import('@/views/Ingredients.vue'),
   },
+  {
+    path: '/recipes',
+    name: 'Recipes',
+    component: () => import('@/views/Recipes.vue'),
+  },
 ];
 
 const router = new VueRouter({

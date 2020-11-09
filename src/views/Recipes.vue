@@ -1,9 +1,7 @@
 <template>
   <div id="home">
     <SideNavTemplate>
-      <template>
-
-      </template>
+      <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     </SideNavTemplate>
   </div>
 </template>
@@ -11,11 +9,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import SideNavTemplate from '@/templates/SideNavTemplate.vue';
-import * as data from '@/data/Products.json';
+import HelloWorld from '@/components/HelloWorld.vue';
 
 @Component({
   components: {
     SideNavTemplate,
+    HelloWorld,
   },
 })
 export default class Home extends Vue {}
