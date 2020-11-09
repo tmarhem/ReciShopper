@@ -7,18 +7,14 @@
       color="grey darken-3"
       mini-variant
     >
-    <router-link
-        v-for="(avatar,i) in avatars"
-        :key="i"
-        :to="avatar.route"
-    >
-      <v-avatar
-        :size="n === 1 ? 36 : 20"
-        class="d-block text-center mx-auto mb-9"
-      >
-        <v-icon> {{avatar.iconName}} </v-icon>
-      </v-avatar>
-    </router-link>
+      <router-link v-for="(avatar, i) in avatars" :key="i" :to="avatar.route">
+        <v-avatar
+          :size="i === 1 ? 36 : 20"
+          class="d-block text-center mx-auto mb-9"
+        >
+          <v-icon> {{ avatar.iconName }} </v-icon>
+        </v-avatar>
+      </router-link>
     </v-navigation-drawer>
 
     <v-main>
@@ -33,7 +29,10 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   components: {},
   props: {
-    transclusions: Array,
+    transclusions: {
+      type: Array,
+      default: ['default'],
+    },
   },
   data() {
     return {

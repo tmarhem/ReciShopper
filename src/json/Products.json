@@ -1,0 +1,30 @@
+[
+    {
+        "id": "3039824100358",
+        "image_small_url": "https://static.openfoodfacts.org/images/products/303/982/410/0358/front_fr.24.200.jpg",
+        "nutrient_levels": {
+            "saturated-fat": "low",
+            "salt": "low",
+            "sugars": "low",
+            "fat": "low"
+        },
+        "product_name_fr": "Lentilles Vertes",
+        "nutrition_grades_tags": [
+            "a"
+        ]
+    },
+    {
+        "id": "3038359003295",
+        "image_small_url": "https://static.openfoodfacts.org/images/products/303/835/900/3295/front_fr.28.200.jpg",
+        "product_name_fr": "Pâte Fraîche, Tagliatelle",
+        "nutrient_levels": {
+            "saturated-fat": "low",
+            "salt": "low",
+            "sugars": "low",
+            "fat": "low"
+        },
+        "nutrition_grades_tags": [
+            "a"
+        ]
+    }
+]
