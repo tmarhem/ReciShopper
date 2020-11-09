@@ -6,7 +6,6 @@
           <v-app-bar
             absolute
             color="#6A76AB"
-            dark
             shrink-on-scroll
             prominent
             src="https://c.pxhere.com/photos/f2/cf/greens_onion_spices_vegetables_food_kitchen_cooking_cutting_board-988557.jpg!d"
