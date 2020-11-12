@@ -17,7 +17,10 @@ import 'firebaseui/dist/firebaseui.css';
     }
     const uiConfig = {
       signInSuccessUrl: '/home',
-      signInOptions: [firebase.auth.FacebookAuthProvider.PROVIDER_ID],
+      signInOptions: [
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      ],
     };
     ui.start('#firebaseui-auth-container', uiConfig);
   },
