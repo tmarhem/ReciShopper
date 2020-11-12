@@ -11,7 +11,6 @@ import 'firebaseui/dist/firebaseui.css';
 @Component({
   components: {},
   mounted() {
-    console.log('mounted -> ui');
     let ui = firebaseui.auth.AuthUI.getInstance();
     if (!ui) {
       ui = new firebaseui.auth.AuthUI(firebase.auth());

@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <SideNavTemplate :transclusions="['HomeSweetHome']">
-      <template v-slot:HomeSweetHome>
+      <template>
         <div>Home Sweet Home</div>
       </template>
     </SideNavTemplate>

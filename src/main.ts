@@ -6,8 +6,6 @@ import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
 
-console.log('ENV', process.env);
-
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_API_KEY,
   authDomain: process.env.VUE_APP_AUTH_DOMAIN,

@@ -1,12 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      class="pt-4"
-      color="grey darken-3"
-      mini-variant
-    >
+    <v-navigation-drawer app class="pt-4" color="grey darken-3" mini-variant>
       <router-link to="/profile">
         <v-avatar :size="36" class="d-block text-center mx-auto mb-9">
           <!-- <v-icon> -->
@@ -15,17 +9,22 @@
         </v-avatar>
       </router-link>
       <router-link v-for="(avatar, i) in avatars" :key="i" :to="avatar.route">
-        <v-avatar
-          :size="i === 1 ? 36 : 20"
-          class="d-block text-center mx-auto mb-9"
-        >
+        <v-avatar :size="20" class="d-block text-center mx-auto mb-9">
           <v-icon> {{ avatar.iconName }} </v-icon>
         </v-avatar>
       </router-link>
+
+      <v-avatar
+        @click="signOut"
+        :size="20"
+        class="d-block text-center mx-auto mb-9"
+      >
+        <v-icon>mdi-location-exit</v-icon>
+      </v-avatar>
     </v-navigation-drawer>
 
     <v-main>
-      <slot v-for="el in transclusions" :name="el" />
+      <slot />
     </v-main>
   </v-app>
 </template>
@@ -36,15 +35,21 @@ import firebase from 'firebase';
 
 @Component({
   components: {},
-  props: {
-    transclusions: {
-      type: Array,
-      default: ['default'],
+  props: {},
+  methods: {
+    signOut(e) {
+      e.stopPropagation();
+      firebase.auth().signOut();
+      this.$router.push({
+        name: 'Login',
+      });
     },
   },
   data() {
     return {
-      user: null,
+      user: {
+        photoURL: '',
+      },
       avatars: [
         {
           iconName: 'mdi-home',

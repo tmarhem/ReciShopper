@@ -74,9 +74,6 @@ import { Component, Vue } from 'vue-property-decorator';
   props: {
     ingredients: Array,
   },
-  mounted() {
-    console.log('ahahahah', process.env.VUE_APP_TITLE);
-  },
 })
 export default class IngredientsList extends Vue {}
 </script>
