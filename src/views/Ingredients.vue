@@ -45,11 +45,7 @@
               </v-tabs>
             </template>
           </v-app-bar>
-          <v-sheet
-            id="scrolling-techniques-3"
-            class="overflow-y-auto"
-            max-height="600"
-          >
+          <v-sheet id="scrolling-techniques-3" class="overflow-y-auto">
             <v-container>
               <IngredientsList :ingredients="jsondata" />
             </v-container>

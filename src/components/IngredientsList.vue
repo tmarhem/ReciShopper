@@ -23,10 +23,31 @@
           ></v-card-title>
 
           <v-card-text>
-            <!-- <v-img
-              :src="`http://localhost:8080/Nutri-score-${ing.nutrition_grades_tags[0].toUpperCase()}.svg`"
-            ></v-img> -->
-            <v-img class="nutriscore" src="@/assets/Nutri-score-A.svg"></v-img>
+            <v-img
+              v-if="ing.nutrition_grades_tags[0] === 'a'"
+              class="nutriscore"
+              src="@/assets/Nutri-score-A.svg"
+            ></v-img>
+            <v-img
+              v-else-if="ing.nutrition_grades_tags[0] === 'b'"
+              class="nutriscore"
+              src="@/assets/Nutri-score-B.svg"
+            ></v-img>
+            <v-img
+              v-else-if="ing.nutrition_grades_tags[0] === 'c'"
+              class="nutriscore"
+              src="@/assets/Nutri-score-C.svg"
+            ></v-img>
+            <v-img
+              v-else-if="ing.nutrition_grades_tags[0] === 'd'"
+              class="nutriscore"
+              src="@/assets/Nutri-score-D.svg"
+            ></v-img>
+            <v-img
+              v-else-if="ing.nutrition_grades_tags[0] === 'e'"
+              class="nutriscore"
+              src="@/assets/Nutri-score-E.svg"
+            ></v-img>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>

@@ -6,7 +6,7 @@ import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
 
-console.log('here', process.env.API_KEY);
+console.log('here', process.env);
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
