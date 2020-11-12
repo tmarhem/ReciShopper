@@ -1,37 +1,27 @@
 <template>
-  <div id="login">Login</div>
+  <section id="firebaseui-auth-container"></section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import firebase from 'firebase';
 import * as firebaseui from 'firebaseui';
-import * as firebase from 'firebase';
-
-// const uiConfig = {
-//   signInSuccessUrl: '/ingredients',
-//   signInOptions: [
-//     // Leave the lines as is for the providers you want to offer your users.
-//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//     firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
-//   ],
-//   // tosUrl and privacyPolicyUrl accept either url string or a callback
-//   // function.
-//   // Terms of service url/callback.
-//   tosUrl: '<your-tos-url>',
-//   // Privacy policy url/callback.
-//   privacyPolicyUrl() {
-//     window.location.assign('<your-privacy-policy-url>');
-//   },
-// };
-
-// // Initialize the FirebaseUI Widget using Firebase.
-// const ui = new firebaseui.auth.AuthUI(firebase.auth());
-// // The start method will wait until the DOM is loaded.
-// ui.start('#firebaseui-auth-container', uiConfig);
+import 'firebaseui/dist/firebaseui.css';
 
 @Component({
   components: {},
+  mounted() {
+    console.log('mounted -> ui');
+    let ui = firebaseui.auth.AuthUI.getInstance();
+    if (!ui) {
+      ui = new firebaseui.auth.AuthUI(firebase.auth());
+    }
+    const uiConfig = {
+      signInSuccessUrl: '/home',
+      signInOptions: [firebase.auth.FacebookAuthProvider.PROVIDER_ID],
+    };
+    ui.start('#firebaseui-auth-container', uiConfig);
+  },
 })
 export default class Home extends Vue {}
 </script>

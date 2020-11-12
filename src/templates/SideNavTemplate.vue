@@ -7,6 +7,13 @@
       color="grey darken-3"
       mini-variant
     >
+      <router-link to="/profile">
+        <v-avatar :size="36" class="d-block text-center mx-auto mb-9">
+          <!-- <v-icon> -->
+          <img :src="user.photoURL" />
+          <!-- </v-icon> -->
+        </v-avatar>
+      </router-link>
       <router-link v-for="(avatar, i) in avatars" :key="i" :to="avatar.route">
         <v-avatar
           :size="i === 1 ? 36 : 20"
@@ -25,6 +32,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import firebase from 'firebase';
 
 @Component({
   components: {},
@@ -36,6 +44,7 @@ import { Component, Vue } from 'vue-property-decorator';
   },
   data() {
     return {
+      user: null,
       avatars: [
         {
           iconName: 'mdi-home',
@@ -51,6 +60,13 @@ import { Component, Vue } from 'vue-property-decorator';
         },
       ],
     };
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((fbuser) => {
+      if (fbuser) {
+        this.$data.user = fbuser;
+      }
+    });
   },
 })
 export default class Home extends Vue {}
