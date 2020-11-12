@@ -25,6 +25,16 @@ const routes: Array<RouteConfig> = [
     name: 'Login',
     component: () => import('@/views/Login.vue'),
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('@/views/Profile.vue'),
+  },
+  {
+    path: '/plannings',
+    name: 'Plannings',
+    component: () => import('@/views/Plannings.vue'),
+  },
 ];
 
 const router = new VueRouter({
