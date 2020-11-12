@@ -1,6 +1,7 @@
 <template>
   <div id="home">
     <SideNavTemplate>
+      <template> Recipes </template>
     </SideNavTemplate>
   </div>
 </template>

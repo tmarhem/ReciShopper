@@ -56,6 +56,10 @@ import firebase from 'firebase';
           route: '/home',
         },
         {
+          iconName: 'mdi-calendar-range',
+          route: '/plannings',
+        },
+        {
           iconName: 'mdi-chef-hat',
           route: '/recipes',
         },
