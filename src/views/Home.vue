@@ -13,6 +13,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import SideNavTemplate from '@/templates/SideNavTemplate.vue';
 
 @Component({
+  methods: {},
   components: {
     SideNavTemplate,
   },
