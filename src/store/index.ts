@@ -3,8 +3,9 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
+    firebaseUser: null,
     user: null,
     recipes: [{ recipe: 'recipe' }],
   },
@@ -12,6 +13,9 @@ export default new Vuex.Store({
     user: (state) => state.user,
   },
   mutations: {
+    setFirebaseUser: (state, fUser) => {
+      state.firebaseUser = fUser;
+    },
     updateUser: (state, user) => {
       state.user = user;
     },
@@ -21,3 +25,5 @@ export default new Vuex.Store({
   modules: {
   },
 });
+
+export default store;
