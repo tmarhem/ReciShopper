@@ -21,6 +21,16 @@ const store = new Vuex.Store({
     },
   },
   actions: {
+    userLogin: async ({ commit }, user) => {
+      commit('setFirebaseUser', user);
+      // TODO: get user from DB
+      commit('updateUser', user);
+      // TODO: Get ingredients
+      // TODO: Set ingredients in store
+
+      // TODO: get recipes
+      // TODO: set recipes in store
+    },
   },
   modules: {
   },
