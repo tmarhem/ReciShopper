@@ -1,13 +1,13 @@
-import firebase from 'firebase';
+// import firebase from 'firebase';
+import { auth } from '@/firebase';
 import store from '@/store/index';
 
 export default {
 
   created() {
-    firebase
-      .auth()
+    auth
       .onAuthStateChanged((user) => {
-        store.commit('setFirebaseUser', user);
+        store.dispatch('onUserChange', user);
       });
   },
 };
