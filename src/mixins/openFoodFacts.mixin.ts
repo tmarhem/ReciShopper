@@ -2,12 +2,20 @@ import axios from 'axios';
 
 export default {
   methods: {
-    getOneProduct(productId: string | number): Promise<unknown> {
+    getOneProduct(productId: string): Promise<unknown> {
       return axios.get(`https://world.openfoodfacts.org/api/v0/product/${productId}.json`);
     },
-    getProducts(productIds: Array<string | number>): Promise<unknown[]> {
+    getProducts(productIds: Array<string>): Promise<unknown[]> {
       const promises = productIds.map((pId) => this.getOneProduct(pId));
       return Promise.all(promises);
+    },
+    getMissingsProducts(
+      currentProducts: { code: string }[],
+      productsIds: Array<string>,
+    ): Promise<unknown[]> {
+      const currentsIds = currentProducts.map((p: { code: string }) => p.code);
+      const missingIds = productsIds.filter((p: string) => !currentsIds.includes(p));
+      return this.getProducts(missingIds);
     },
   },
 };

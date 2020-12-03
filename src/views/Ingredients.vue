@@ -44,6 +44,7 @@ import { mapState } from 'vuex';
     },
     onDialogExited(event: string) {
       this.$data.isDialogOpen = false;
+      this.$store.dispatch('onIngredientAdded', '3038359003295');
     },
   },
   data() {
