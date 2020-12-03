@@ -43,10 +43,8 @@
       <template v-slot:extension>
         <v-tabs align-with-title>
           <v-tab v-on:click="$emit('tab-clicked', 'All')">All</v-tab>
-          <v-tab v-on:click="$emit('tab-clicked', 'Pasta')">Pasta</v-tab>
-          <v-tab v-on:click="$emit('tab-clicked', 'Vegetables')"
-            >Vegetables</v-tab
-          >
+          <v-tab v-on:click="$emit('tab-clicked', 'Cat 1')">Cat 1</v-tab>
+          <v-tab v-on:click="$emit('tab-clicked', 'Cat 2')">Cat 2</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>

@@ -1,34 +1,26 @@
 <template>
   <div id="AddIngredient">
-    Test
-
     <v-dialog v-model="dialog" persistent>
-      <!-- <template v-slot:activator="{ on, attrs }">
-        <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
-          Click Me
-        </v-btn>
-      </template> -->
-
       <v-card>
-        <v-card-title class="headline grey lighten-2">
-          Privacy Policy
-        </v-card-title>
+        <v-card-title class="headline"> Add Ingredient </v-card-title>
 
         <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <v-text-field outlined label="Barcode" :rules="rules"></v-text-field>
+          <div>or</div>
+          <v-btn depressed disabled>
+            <v-icon dark> mdi-barcode-scan </v-icon>
+            Scan Barcode
+          </v-btn>
         </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn v-on:click="$emit('dialog-exited', 'test')"> Test </v-btn>
+          <v-btn v-on:click="$emit('dialog-exited', 'test')"> Add </v-btn>
+          <v-btn color="error" v-on:click="$emit('dialog-exited', 'test')">
+            Cancel
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -44,6 +36,11 @@ import { Component, Vue } from 'vue-property-decorator';
       type: Boolean,
       default: false,
     },
+  },
+  data() {
+    return {
+      rules: [(v: string) => v.length === 13 || 'Barcode is 13 characters'],
+    };
   },
   components: {},
 })
