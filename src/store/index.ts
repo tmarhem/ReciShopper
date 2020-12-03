@@ -1,17 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import firebase from 'firebase';
 import { db } from '@/firebase';
-import axios from 'axios';
+import off from '@/mixins/openFoodFacts.mixin';
 
 Vue.use(Vuex);
-// const db = firebase.firestore();
 
 const store = new Vuex.Store({
   state: {
     firebaseUser: null,
     userId: null,
     ingredientsIds: [],
+    ingredients: [],
     recipes: [],
   },
   getters: {
@@ -27,6 +26,9 @@ const store = new Vuex.Store({
     setIngredientsIds: (state, ingredientsIds) => {
       state.ingredientsIds = ingredientsIds;
     },
+    setIngredients: (state, ingredients) => {
+      state.ingredients = ingredients;
+    },
     setRecipes: (state, recipes) => {
       state.recipes = recipes;
     },
@@ -39,17 +41,13 @@ const store = new Vuex.Store({
       const dbUser = await userRef.get();
       const userData = dbUser.data();
       commit('setUserId', dbUser.id);
-      commit('setIngredientsIds', userData ? userData.ingredients : []);
+      const ingredientsIds = userData ? userData.ingredients : [];
+      commit('setIngredientsIds', ingredientsIds);
       const recipes = await userRef.collection('recipes').get();
       commit('setRecipes', recipes.docs.map((d) => ({ id: d.id, ...d.data() })));
-      // TODO: Get real ingredients on OFF
-
-      console.log('userData.ingredients', userData ? userData.ingredients : []);
-      const testIngredient = await axios.get('https://world.openfoodfacts.org/api/v0/product/3039824100358.json');
-      console.log('tI', testIngredient);
+      const ingredients = await off.methods.getProducts(ingredientsIds);
+      commit('setIngredients', ingredients);
     },
-  },
-  modules: {
   },
 });
 
