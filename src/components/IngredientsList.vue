@@ -70,7 +70,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-  components: {},
   props: {
     ingredients: Array,
   },

@@ -48,6 +48,7 @@
           <v-sheet id="scrolling-techniques-3" class="overflow-y-auto">
             <v-container>
               <IngredientsList :ingredients="ingredients" />
+              <AddIngredient :dialog="isDialogOpen" />
             </v-container>
           </v-sheet>
         </v-card>
@@ -60,13 +61,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 import SideNavTemplate from '@/templates/SideNavTemplate.vue';
 import IngredientsList from '@/components/IngredientsList.vue';
-// import json from '@/json/Products.json';
+import AddIngredient from '@/components/AddIngredient.vue';
+
 import { mapState } from 'vuex';
 
 @Component({
   components: {
     SideNavTemplate,
     IngredientsList,
+    AddIngredient,
   },
   computed: {
     ...mapState(['ingredients']),
@@ -74,6 +77,7 @@ import { mapState } from 'vuex';
   data() {
     return {
       jsondata: null,
+      isDialogOpen: false,
     };
   },
 })
