@@ -47,7 +47,7 @@
           </v-app-bar>
           <v-sheet id="scrolling-techniques-3" class="overflow-y-auto">
             <v-container>
-              <IngredientsList :ingredients="jsondata" />
+              <IngredientsList :ingredients="ingredients" />
             </v-container>
           </v-sheet>
         </v-card>
@@ -60,16 +60,20 @@
 import { Component, Vue } from 'vue-property-decorator';
 import SideNavTemplate from '@/templates/SideNavTemplate.vue';
 import IngredientsList from '@/components/IngredientsList.vue';
-import json from '@/json/Products.json';
+// import json from '@/json/Products.json';
+import { mapState } from 'vuex';
 
 @Component({
   components: {
     SideNavTemplate,
     IngredientsList,
   },
+  computed: {
+    ...mapState(['ingredients']),
+  },
   data() {
     return {
-      jsondata: json,
+      jsondata: null,
     };
   },
 })

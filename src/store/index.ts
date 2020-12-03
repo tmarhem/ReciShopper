@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { db } from '@/firebase';
 import off from '@/mixins/openFoodFacts.mixin';
+import { get } from 'lodash';
 
 Vue.use(Vuex);
 
@@ -49,7 +50,7 @@ const store = new Vuex.Store({
       const recipes = await userRef.collection('recipes').get();
       commit('setRecipes', recipes.docs.map((d) => ({ id: d.id, ...d.data() })));
 
-      const ingredients = await off.methods.getProducts(ingredientsIds);
+      const ingredients = (await off.methods.getProducts(ingredientsIds)).map((i) => get(i, ['data', 'product']));
       commit('setIngredients', ingredients);
     },
   },
