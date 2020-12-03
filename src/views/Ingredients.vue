@@ -3,7 +3,10 @@
     <SideNavTemplate>
       <BasicViewTemplate v-on:button-clicked="onMenuButtonClicked($event)">
         <IngredientsList :ingredients="ingredients" />
-        <AddIngredient :dialog="isDialogOpen" />
+        <AddIngredient
+          :dialog="isDialogOpen"
+          v-on:dialog-exited="onDialogExited($event)"
+        />
       </BasicViewTemplate>
     </SideNavTemplate>
   </div>
@@ -30,14 +33,17 @@ import { mapState } from 'vuex';
   },
   methods: {
     onMenuButtonClicked(event: string) {
-      console.log('onMenuButtonClicked -> onMenuButtonClicked');
+      console.log('onMenuButtonClicked -> onMenuButtonClicked', event);
       switch (event) {
-        case 'search':
+        case 'add':
           this.$data.isDialogOpen = true;
           break;
         default:
           break;
       }
+    },
+    onDialogExited(event: string) {
+      this.$data.isDialogOpen = false;
     },
   },
   data() {
