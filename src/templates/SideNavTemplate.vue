@@ -78,5 +78,5 @@ import firebase from 'firebase';
     });
   },
 })
-export default class Home extends Vue {}
+export default class SideNavTemplate extends Vue {}
 </script>
