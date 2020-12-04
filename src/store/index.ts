@@ -33,7 +33,7 @@ const store = new Vuex.Store({
     },
     // setIngredientsIds: (state, ingredientsIds) => {
     //   state.ingredientsIds = ingredientsIds;
-    // },
+    // },//
     setIngredients: (state, ingredients) => {
       state.ingredients = ingredients;
     },
